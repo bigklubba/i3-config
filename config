@@ -202,7 +202,7 @@ font pango:Cousine, FontAwesome 9
 #client.focused_inactive #6e686f #6e686f #ffffff #484e50
 #client.unfocused        #6e686f #6e686f #888888 #292d2e
 #client.urgent           #e9e6e6 #BFB8B0 #ffffff #900000
-client.focused          #00ff00 #849492 #ffffff #ff0000
+client.focused          #84f492 #84f492 #000000 #ff0000
 client.focused_inactive #6e686f #849492 #ffffff #ff4e50
 client.unfocused        #6e686f #6e686f #888888 #ff2d2e
 client.urgent           #e9e6e6 #BFB8B0 #ffffff #900000
