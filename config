@@ -39,6 +39,10 @@ bindsym $mod+d exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+bindsym $mod+Control+Left move workspace to output left
+bindsym $mod+Control+h move workspace to output left
+bindsym $mod+Control+Right move workspace to output right
+bindsym $mod+Control+l move workspace to output right
 # change focus
 #bindsym $mod+j focus left
 #bindsym $mod+k focus down
@@ -102,11 +106,16 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+set $ws1 1:
+set $ws2 2:
+set $ws3 3:
+set $ws4 4:
+
 # switch to workspace
-bindsym $mod+1 workspace 1:
-bindsym $mod+2 workspace 2:
-bindsym $mod+3 workspace 3:
-bindsym $mod+4 workspace 4:
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2 
+bindsym $mod+3 workspace $ws3 
+bindsym $mod+4 workspace $ws4 
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -115,10 +124,10 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:
-bindsym $mod+Shift+2 move container to workspace 2:
-bindsym $mod+Shift+3 move container to workspace 3:
-bindsym $mod+Shift+4 move container to workspace 4:
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -216,7 +225,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id davmail ~/davmail/sigma.davmail.properties
 exec --no-startup-id ~/bin/xidle_trigger.sh
-exec_always --no-startup-id ~/.screenlayout/lap_big_normal.sh
+# exec_always --no-startup-id ~/.screenlayout/lap_big_normal.sh
 exec_always --no-startup-id xset m 0 0 
 # exec_always --no-startup-id nitrogen --restore
 # exec --no-startup-id i3-msg 'workspace 1:; exec thunderbird'
@@ -224,3 +233,7 @@ exec_always --no-startup-id xset m 0 0
 # exec --no-startup-id i3-msg 'workspace 3:; exec i3-sensible-terminal'
 # exec --no-startup-id i3-msg 'workspace 3:; exec firefox'
 # exec --no-startup-id i3-msg 'workspace 2:; exec idea2.sh'
+assign [class="(?i)Thunderbird"] $ws1
+assign [class="(?i)jetbrains-idea"] $ws2
+assign [class="(?i)Firefox"] $ws3
+# assign [class="(?i)oracle-ide-osgi-boot-OracleIdeLauncher"] $ws4
