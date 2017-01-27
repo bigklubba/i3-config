@@ -248,6 +248,7 @@ bindsym XF86AudioMute exec amixer set Master toggle
 
 # STARTUP PROGRAMS
 #
-exec_always --no-startup-id nm-applet
-exec_always --no-startup-id pamac-tray
+exec_always --no-startup-id setxkbmap -option caps:swapescape
+exec --no-startup-id nm-applet
+exec --no-startup-id pamac-tray
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
