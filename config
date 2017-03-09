@@ -29,6 +29,10 @@ font pango:System San Francisco Display 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Mouse controll
+focus_follows_mouse no
+
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -75,6 +79,10 @@ bindsym $mod+b split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+
+# Scratchpad settings
+bindsym $mod+minus move scratchpad
+bindsym $mod+plus scratchpad show
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -236,7 +244,8 @@ assign [class="(?i)Chromium"] $ws4
 #assign [class="(?i)spotify"] $ws8
 assign [class="(?i)Skype"] $ws9
 assign [class="(?i)scudcloud"] $ws9
-
+assign [class="(?i)slack"] $ws9
+assign [class="(?i)DBeaver"] $ws5
 #Move spotify
 for_window [class="Spotify"] move to workspace $ws8
 
@@ -246,9 +255,24 @@ bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
 bindsym XF86AudioLowerVolume exec amixer set Master 5%-
 bindsym XF86AudioMute exec amixer set Master toggle
 
+# HANDLE BACKLIGHT
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
 # STARTUP PROGRAMS
 #
-exec_always --no-startup-id setxkbmap -option caps:swapescape
-exec --no-startup-id nm-applet
-exec --no-startup-id pamac-tray
+exec_always --no-startup-id nm-applet
+exec_always --no-startup-id pamac-tray
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id xmodmap -e "clear lock"
+exec --no-startup-id xmodmap -e "keysym Caps_Lock = Escape"
+# exec--no-startup-id i3-msg 'workspace $ws1'; exec evolution
+# exec--no-startup-id i3-msg 'workspace $ws2'; exec idea.sh
+# exec--no-startup-id i3-msg 'workspace $ws3'; exec i3-sensible-terminal
+# exec--no-startup-id i3-msg 'workspace $ws3'; exec i3-sensible-terminal
+# exec--no-startup-id i3-msg 'workspace $ws4'; exec firefox
+# exec--no-startup-id i3-msg 'workspace $ws4'; exec chromium
+# exec--no-startup-id i3-msg 'workspace $ws9'; exec slack
+# exec--no-startup-id i3-msg 'workspace $ws5'; exec i3-sensible-terminal
+# exec--no-startup-id i3-msg 'workspace $ws5'; exec dbeaver
+# exec--no-startup-id i3-msg 'workspace $ws9'; exec skypeforlinux
